@@ -1,2 +1,15 @@
-@import './common';
-@import './example';
+@import '~node_modules/modern-normalize/modern-normalize.css';
+@import './utils/variables';
+@import './base/reset';
+@import './utils/transitions';
+
+@import './base/backdrop';
+@import './components/film_info_modal';
+@import './base/container';
+@import './components/header';
+@import './components/container';
+
+@import './components/footer';
+@import './components/player';
+@import './components/modal_team';
+@import './components/pagination';
