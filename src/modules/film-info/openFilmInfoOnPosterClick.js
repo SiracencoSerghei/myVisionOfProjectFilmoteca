@@ -7,10 +7,10 @@ import {
   closeFilmInfoOnEsc,
   closeFilmInfoOnCloseBtnClick,
 } from './closeFilmInfoModal';
-import { handleFilmInfoData } from './handelFilmInfoData';
+import { handleFilmInfoData } from './handleFilmInfoData';
 import { playVideo } from '../player/playVideo';
 import { Notify } from 'notiflix';
-
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
 export function openFilmInfoOnPosterClick(evt) {
   if (
     evt.target.nodeName !== 'LI' &&
@@ -27,6 +27,9 @@ export function openFilmInfoOnPosterClick(evt) {
     queueBtnRef,
     filmWatchTrailerBtnRef,
   } = refs;
+  Loading.hourglass('Loading...', {
+    svgColor: '#b92f2c',
+  });
 
   fetchApi({
     param: apiRefs.MOVIE_DETAILS,
@@ -36,6 +39,7 @@ export function openFilmInfoOnPosterClick(evt) {
         evt.target.parentNode.parentNode.dataset.id
     ),
   }).then(data => {
+    Loading.remove();
     if (data.status_code === 34) {
       Notify.failure('No info');
       return;
@@ -52,16 +56,12 @@ export function openFilmInfoOnPosterClick(evt) {
     filmWatchTrailerBtnRef.addEventListener('click', playVideo);
   });
 }
-
 function setBackdropStyle(data) {
   const imageLink = 'https://image.tmdb.org/t/p/original/';
   const poster_path = data.poster_path;
   const bgImageForBcdrop = poster_path ? `${imageLink}${poster_path}` : samplePlaceholder;
   const elementWithBgImage = document.querySelector('.backdrop');
-
-  // Установить фоновое изображение для элемента
   elementWithBgImage.style.backgroundImage = `url(${bgImageForBcdrop})`;
-
   // Установить другие стили фона, если нужно
   elementWithBgImage.style.backgroundSize = 'cover';
   elementWithBgImage.style.backgroundPosition = 'center';
