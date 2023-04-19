@@ -43,6 +43,7 @@ export function openFilmInfoOnPosterClick(evt) {
 
     handleFilmInfoData(data, watchedBtnRef, queueBtnRef);
     renderFilmInfo(data);
+    setBackdropStyle(data);
     backdropRef.classList.remove('is-hidden');
     document.body.style.overflow = 'hidden';
     document.addEventListener('click', closeFilmInfoOnEsc);
@@ -50,4 +51,19 @@ export function openFilmInfoOnPosterClick(evt) {
     filmInfoCloseBtnRef.addEventListener('click', closeFilmInfoOnCloseBtnClick);
     filmWatchTrailerBtnRef.addEventListener('click', playVideo);
   });
+}
+
+function setBackdropStyle(data) {
+  const imageLink = 'https://image.tmdb.org/t/p/original/';
+  const poster_path = data.poster_path;
+  const bgImageForBcdrop = poster_path ? `${imageLink}${poster_path}` : samplePlaceholder;
+  const elementWithBgImage = document.querySelector('.backdrop');
+
+  // Установить фоновое изображение для элемента
+  elementWithBgImage.style.backgroundImage = `url(${bgImageForBcdrop})`;
+
+  // Установить другие стили фона, если нужно
+  elementWithBgImage.style.backgroundSize = 'cover';
+  elementWithBgImage.style.backgroundPosition = 'center';
+  elementWithBgImage.style.backgroundRepeat = 'no-repeat';
 }
