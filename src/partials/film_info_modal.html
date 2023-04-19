@@ -1,6 +1,6 @@
 <div class="backdrop is-hidden" id="backdrop">
   <div class="film-info">
-    <button type="button" class="film-info__close js-close">
+    <button type="button" aria-labelledby="close-modal" class="film-info__close js-close">
       <svg width="30" height="30">
         <use href="./images/header/icons.svg#icon-close"></use>
       </svg>
@@ -15,7 +15,7 @@
           width="240"
           height="357"
         />
-        <button type="button" class="trailer-btn" id="js-trailer">
+        <button type="button" aria-labelledby="trailer-play" class="trailer-btn" id="js-trailer">
           <svg width="45" height="45">
             <use href="./images/header/icons.svg#icon-play3"></use>
           </svg>
@@ -53,7 +53,7 @@
           <p class="film-info__text" id="film-overview"></p>
           <ul class="buttons-list">
             <li class="buttons-list__item">
-              <button
+              <button aria-labelledby="add-watched"
                 type="button"
                 class="add-watched buttons-list__button"
                 id="js-watched"
@@ -62,7 +62,7 @@
               </button>
             </li>
             <li class="buttons-list__item">
-              <button
+              <button aria-labelledby="add-queue "
                 type="button"
                 class="add-queue buttons-list__button buttons-list__button--transparent"
                 id="js-queue"

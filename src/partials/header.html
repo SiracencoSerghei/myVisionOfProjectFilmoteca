@@ -8,7 +8,7 @@
           class="header-form__input"
           placeholder="Movie Search"
         />
-        <button
+        <button aria-labelledby="search"
           class="header-form__button"
           id="button-form-search"
           aria-label="Search"
@@ -19,13 +19,13 @@
         </button>
       </form>
       <nav class="header-nav">
-        <button
+        <button aria-labelledby="home"
           class="header-nav_home header-nav--active"
           id="button-header-home"
         >
           HOME
         </button>
-        <button class="header-nav_library" id="button-header-library">
+        <button aria-labelledby="my-library" class="header-nav_library" id="button-header-library">
           MY LIBRARY
         </button>
       </nav>
@@ -44,13 +44,13 @@
     </div>
     <div class="header-button__library" style="display: none">
       <!-- змінити на display: flex -->
-      <button
+      <button aria-labelledby="watched"
         class="header-button__library--watched"
         id="button-header-watched"
       >
         WATCHED
       </button>
-      <button
+      <button aria-labelledby="queue"
         class="header-button__library--queue header-button__library--active"
         id="button-header-queue"
       >
