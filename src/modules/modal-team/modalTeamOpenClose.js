@@ -3,7 +3,7 @@ const modalTeam = document.getElementById('modal-team');
 const modalTeamClose = document.querySelectorAll('.modal-team__close');
 
 modalTeamOpen.addEventListener('click', () => {
-  modalTeam.classList.remove('is-hidden');
+  // modalTeam.classList.remove('is-hidden');
 });
 
 modalTeamClose.forEach(btn => {
